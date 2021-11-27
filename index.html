@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>解二元一次方程组</title>
+    <script  src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <link href="https://zhousw.github.io/解二元一次方程组/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+<style>
+    input {
+        padding: 0;
+        border: 0;
+        color: rgb(10, 10, 10);
+        background-color: transparent;
+        border-bottom: 1px solid #333;
+        -webkit-appearance: textfield;
+        -webkit-writing-mode: horizontal-tb !important;
+        -webkit-rtl-ordering: logical;
+        text-rendering: auto;
+        display: inline-block;
+        overflow: visible;
+        outline: none;
+        font-family: 微软雅黑;
+        text-align: center;
+    }
+</style>
+<script>
+    function checkLength(which) {
+
+        iCount = which.value.replace(/[^\u0000-\u00ff]/g,"aa");
+        which.size=iCount.length;
+    }
+</script>
+<div class="container">
+  <div class="col-sm-offstet-2 col-sm-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        解二元一次方程组
+      </div>
+      <div class="panel-body">
+        <table class="table table-striped task-table">
+            <thead>
+                <tr>
+                    <th>方程1</th>
+                    <th>方程2</th>
+                    <th>计算</th>
+                    <th>结果</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input id="a11" type="text" onkeyup="checkLength(this)" size="1">x+<input id="a12"  onkeyup="checkLength(this)" size="1">y=<input id="b1"  onkeyup="checkLength(this)" size="1"></td>
+                    <td><input id="a21"  onkeyup="checkLength(this)" size="1">x+<input id="a22"  onkeyup="checkLength(this)" size="1">y=<input id="b2"  onkeyup="checkLength(this)" size="1"></td>
+                    <td><button class="btn btn-success edit" onclick="计算()">计算</button></td>
+                    <td><input type="text" onkeyup="checkLength(this)" id="ans" size="0"></td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+    </div>
+      <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+      <span id="busuanzi_container_site_pv">总共<span id="busuanzi_value_site_uv"></span>人访问了这里</span>
+  </div>
+</div>
+<script src="https://zhousw.github.io/解二元一次方程组/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</body>
+</html>
