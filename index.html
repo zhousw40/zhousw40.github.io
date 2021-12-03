@@ -4,25 +4,44 @@
     <meta charset="UTF-8">
     <title>解二元一次方程组</title>
     <script  src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
-    <link href="https://zhousw50.github.io/解二元一次方程组/bootstrap.css" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdn.bootcdn.net/ajax/libs/mdui/1.0.2/css/mdui.min.css'>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/UallenQbit/Static/Body.css'>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/UallenQbit/Static/MDUI-Border-Radius.css'>
+    <link rel='stylesheet' href='https://cdn.bootcdn.net/ajax/libs/limonte-sweetalert2/11.1.0/sweetalert2.min.css'>
+    <link rel='stylesheet' href='./Style.css?Sha1=157b0f8957c1f2342fd2405c7c08653d4b5fcc97'>
+    <script src='https://cdn.bootcdn.net/ajax/libs/limonte-sweetalert2/11.1.0/sweetalert2.all.min.js'></script>
 </head>
 <body>
 <style>
     input {
-        padding: 0;
-        border: 0;
-        color: rgb(10, 10, 10);
-        background-color: transparent;
-        border-bottom: 1px solid #333;
-        -webkit-appearance: textfield;
+        -webkit-text-size-adjust: 100%;
+        word-wrap: break-word;
+        -webkit-tap-highlight-color: transparent;
         -webkit-writing-mode: horizontal-tb !important;
         -webkit-rtl-ordering: logical;
         text-rendering: auto;
-        display: inline-block;
-        overflow: visible;
-        outline: none;
-        font-family: 微软雅黑;
         text-align: center;
+        box-sizing: border-box;
+        height: 36px;
+        width: 30%;
+        margin: 0;
+        padding: 8px 0;
+        overflow: hidden;
+        color: rgba(0,0,0,.87);
+        font-size: 16px;
+        font-family: inherit;
+        line-height: 20px;
+        background: 0 0;
+        border: none;
+        border-bottom: 1px solid rgba(0,0,0,.42);
+        border-radius: 0;
+        outline: 0;
+        box-shadow: none;
+        transition-timing-function: cubic-bezier(.4,0,.2,1);
+        transition-duration: .2s;
+        transition-property: border-bottom-color,padding-right,box-shadow,-webkit-box-shadow;
+        appearance: none;
+        resize: none;
     }
 </style>
 <script>
@@ -32,38 +51,73 @@
         which.size=iCount.length;
     }
 </script>
-<div class="container">
-  <div class="col-sm-offstet-2 col-sm-8">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        解二元一次方程组
-      </div>
-      <div class="panel-body">
-        <table class="table table-striped task-table">
-            <thead>
-                <tr>
-                    <th>方程1</th>
-                    <th>方程2</th>
-                    <th>计算</th>
-                    <th>结果</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><input id="a11" type="text" onkeyup="checkLength(this)" size="1">x+<input id="a12"  onkeyup="checkLength(this)" size="1">y=<input id="b1"  onkeyup="checkLength(this)" size="1"></td>
-                    <td><input id="a21"  onkeyup="checkLength(this)" size="1">x+<input id="a22"  onkeyup="checkLength(this)" size="1">y=<input id="b2"  onkeyup="checkLength(this)" size="1"></td>
-                    <td><button class="btn btn-success edit" onclick="计算()">计算</button></td>
-                    <td><input type="text" readonly="readonly" onkeyup="checkLength(this)" id="ans" size="0"></td>
-                </tr>
-            </tbody>
-        </table>
-      </div>
+<body class='mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-indigo'>
+<header class='mdui-appbar mdui-appbar-fixed'>
+    <div class='mdui-toolbar mdui-color-theme'>
+        <button mdui-drawer="{target: '#main-drawer'}" class='mdui-btn mdui-btn-icon' mdui-tooltip="{content:'菜单'}"><i class='mdui-icon material-icons'>menu</i></button>
+        <a href='./?Type=LinkParsing' class='mdui-typo-headline' mdui-tooltip="{content:'解二元一次方程组'}">解二元一次方程组</span></a>
+        <div class='mdui-toolbar-spacer'></div>
     </div>
-      <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
-      <span id="busuanzi_container_site_pv">总共<span id="busuanzi_value_site_uv"></span>人访问了这里</span>
+</header>
+<div class='mdui-drawer mdui-drawer-close' id='main-drawer'>
+    <div class='mdui-list'>
+        <a href='https://zhousw.top/' class='mdui-list-item'><i class='mdui-list-item-icon mdui-icon material-icons'>home</i><div class='mdui-list-item-content'>首页</div></a>
+        <br>
+        <li class='mdui-list-item' mdui-drawer-close=''><i class='mdui-list-item-icon mdui-icon material-icons'>chevron_left</i><div class='mdui-list-item-content'>收起菜单</div></li>
+    </div>
+</div>
+<div class='mdui-container mdui-p-t-3'>
+    <div class='mdui-card'>
+        <div class='mdui-card-content mdui-typo'>
+            <div class='mdui-row-sm-1 mdui-row-lg-1' id='RecordClass'>
+                <div style='margin-top:16px'></div>
+                <div id='RecordDiv'></div>
+
+                <div style='margin-top:16px'></div>
+                <div class='mdui-col'>
+                    <div class='mdui-card'>
+                        <div class='mdui-card-content'>
+                            <div class='mdui-card-primary-title'>解二元一次方程组</div>
+                            <div class='mdui-card-primary-subtitle'>请先将每个二元一次方程化成ax+by=c的形式</div>
+                            <div class='mdui-card-menu'>
+                                <button type='button' class='mdui-btn mdui-color-red-400 mdui-ripple' mdui-tooltip='{content:&quot;清空表单&quot;}' onclick='DelData()'><i class='mdui-icon material-icons'>delete</i>清空</button>
+                            </div>
+                        </div>
+
+                        <div class='mdui-card-primary'>
+                            <div class='mdui-textfield'>
+                                <label class='mdui-textfield-label'>方程1</label>
+                                <input id="a11" type="text" onkeyup="checkLength(this)" size="1">x+<input id="a12"  onkeyup="checkLength(this)" size="1">y=<input id="b1"  onkeyup="checkLength(this)" size="1">
+                            </div>
+
+                            <div class='mdui-textfield'>
+                                <label class='mdui-textfield-label'>方程2</label>
+                                <input id="a21" onkeyup="checkLength(this)" size="1">x+<input id="a22"  onkeyup="checkLength(this)" size="1">y=<input id="b2"  onkeyup="checkLength(this)" size="1">
+                            </div>
+                            <button type='button'  onclick="计算()" class='mdui-btn mdui-color-green-700 mdui-btn-block mdui-ripple' mdui-tooltip="{content:'解二元一次方程组'}" onclick='LinkParsing()'><i class='mdui-list-item-icon mdui-icon material-icons' style='margin-top:-2px'>arrow_forward</i> 计算</button>
+                            <div class='mdui-textfield'>
+                                <label class='mdui-textfield-label'>答案</label>
+                                <input readonly="readonly" class='mdui-textfield-input' id="ans"  onkeyup="checkLength(this)" size="1">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style='height:16px'></div>
+        </div>
+    </div>
+</div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div style='height:70px'></div>
+<footer class='mdui-typo'>
+    <p>Copyright © 2021 - 2021 <text475bca><a href='https://zhousw.top/'>zhousw.top</a></text475bca></p>
+    <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+</footer>
+</body>
+<script src='https://cdn.bootcdn.net/ajax/libs/mdui/1.0.2/js/mdui.min.js'></script>
+</html>
   </div>
 </div>
-<script src="https://zhousw50.github.io/解二元一次方程组/index.js"></script>
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="./index.js"></script>
 </body>
 </html>
