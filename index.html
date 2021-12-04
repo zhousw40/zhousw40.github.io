@@ -9,7 +9,6 @@
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/UallenQbit/Static/MDUI-Border-Radius.css'>
     <link rel='stylesheet' href='https://cdn.bootcdn.net/ajax/libs/limonte-sweetalert2/11.1.0/sweetalert2.min.css'>
     <link rel='stylesheet' href='./Style.css?Sha1=157b0f8957c1f2342fd2405c7c08653d4b5fcc97'>
-    <script src='https://cdn.bootcdn.net/ajax/libs/limonte-sweetalert2/11.1.0/sweetalert2.all.min.js'></script>
 </head>
 <body>
 <style>
@@ -99,10 +98,30 @@
                                 <label class='mdui-textfield-label'>答案</label>
                                 <input readonly="readonly" class='mdui-textfield-input' id="ans"  onkeyup="checkLength(this)" size="1">
                             </div>
+                            <div  class='mdui-textfield' id="gitment-ctn"></div>
+
+                            <!-- 中文 -->
+                            <link rel="stylesheet" href="https://zhousw.top/lib/gitment.css">
+                            <script src="https://zhousw.top/lib/gitment.js"></script>
+
+                            <script>
+                                <!-- id: "解二元一次方程组" -->
+                                var gitment = new Gitment({
+                                    id: "20211023221557",
+                                    owner: 'zhousw50',
+                                    repo: 'pinlun',
+                                    oauth: {
+                                        client_id: '92cc61257b37f441e9b9',
+                                        client_secret: '12f7c8e26c31062821c288c62c635ecc15205b67',
+                                    },
+                                })
+                                gitment.render('gitment-ctn')
+                            </script>
+
                         </div>
                     </div>
                 </div>
-            </div>
+            </d iv>
             <div style='height:16px'></div>
         </div>
     </div>
@@ -118,6 +137,7 @@
 </html>
   </div>
 </div>
-<script src="https://zhousw40.github.io/index.js"></script>
+<script src="./index.js"></script>
+
 </body>
 </html>
