@@ -44,6 +44,20 @@
     }
 </style>
 <script>
+   window.onload = function(){
+    /* 第一个参数是你想让 1rem 等于多少像素，第二个参数是设计稿的宽度 */
+    getRem(50,750)
+};
+window.onresize = function(){
+    getRem(50,750)
+};
+function getRem(prem,pwidth){
+    var oWidth = document.body.clientWidth || document.documentElement.clientWidth;
+    document.documentElement.style.fontSize = prem/pwidth*oWidth + "px";
+}
+ 
+</script>    
+<script>
     function checkLength(which) {
 
         iCount = which.value.replace(/[^\u0000-\u00ff]/g,"aa");
