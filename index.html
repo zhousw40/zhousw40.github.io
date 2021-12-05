@@ -43,20 +43,13 @@
         resize: none;
     }
 </style>
-<script>
-   window.onload = function(){
-    /* 第一个参数是你想让 1rem 等于多少像素，第二个参数是设计稿的宽度 */
-    getRem(50,750)
-};
-window.onresize = function(){
-    getRem(50,750)
-};
-function getRem(prem,pwidth){
-    var oWidth = document.body.clientWidth || document.documentElement.clientWidth;
-    document.documentElement.style.fontSize = prem/pwidth*oWidth + "px";
-}
- 
-</script>    
+<style>
+    @media screen and (max-width: 720px) {
+        body{width: 90%!important; padding: 0px!important; margin:0px!important; min-width:350px!important;}
+    }
+
+
+</style>
 <script>
     function checkLength(which) {
 
@@ -64,6 +57,8 @@ function getRem(prem,pwidth){
         which.size=iCount.length;
     }
 </script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <body class='mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-indigo'>
 <header class='mdui-appbar mdui-appbar-fixed'>
     <div class='mdui-toolbar mdui-color-theme'>
@@ -112,7 +107,7 @@ function getRem(prem,pwidth){
                                 <label class='mdui-textfield-label'>答案</label>
                                 <input readonly="readonly" class='mdui-textfield-input' id="ans"  onkeyup="checkLength(this)" size="1">
                             </div>
-                            <div  class='mdui-textfield' id="gitment-ctn"></div>
+                            <div  class='mdui-textfield' id="gitment-ctn"><label class='mdui-textfield-label'>评论区</label></div>
 
                             <!-- 中文 -->
                             <link rel="stylesheet" href="https://zhousw.top/lib/gitment.css">
