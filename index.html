@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ch">
 <head>
     <meta charset="UTF-8">
     <title>解二元一次方程组</title>
-    <script  src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
     <link rel='stylesheet' href='https://cdn.bootcdn.net/ajax/libs/mdui/1.0.2/css/mdui.min.css'>
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/UallenQbit/Static/Body.css'>
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/UallenQbit/Static/MDUI-Border-Radius.css'>
     <link rel='stylesheet' href='https://cdn.bootcdn.net/ajax/libs/limonte-sweetalert2/11.1.0/sweetalert2.min.css'>
+    <script src='https://cdn.bootcdn.net/ajax/libs/limonte-sweetalert2/11.1.0/sweetalert2.all.min.js'></script>
+    <script src='https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+    <script src='https://cdn.bootcdn.net/ajax/libs/qrcodejs/1.0.0/qrcode.min.js'></script>
+    <script src='https://cdn.bootcdn.net/ajax/libs/mdui/1.0.2/js/mdui.min.js'></script>
+    <script src='index.js'></script>
     </head>
 <body>
 <style>
@@ -62,92 +66,98 @@
 <header class='mdui-appbar mdui-appbar-fixed'>
     <div class='mdui-toolbar mdui-color-theme'>
         <button mdui-drawer="{target: '#main-drawer'}" class='mdui-btn mdui-btn-icon' mdui-tooltip="{content:'菜单'}"><i class='mdui-icon material-icons'>menu</i></button>
-        <a href='./?Type=LinkParsing' class='mdui-typo-headline' mdui-tooltip="{content:'解二元一次方程组'}">解二元一次方程组</span></a>
+        <a href='https://zhousw.top' class='mdui-typo-headline' mdui-tooltip="{content:'解二元一次方程组'}">解二元一次方程组</span></a>
         <div class='mdui-toolbar-spacer'></div>
+        <a href='javascript:window.location.reload()' class='mdui-btn mdui-btn-icon'><i class='mdui-icon material-icons'>refresh</i></a>
     </div>
 </header>
+
 <div class='mdui-drawer mdui-drawer-close' id='main-drawer'>
     <div class='mdui-list'>
-        <a href='https://zhousw.top/' class='mdui-list-item'><i class='mdui-list-item-icon mdui-icon material-icons'>home</i><div class='mdui-list-item-content'>首页</div></a>
-        <br>
-        <li class='mdui-list-item' mdui-drawer-close=''><i class='mdui-list-item-icon mdui-icon material-icons'>chevron_left</i><div class='mdui-list-item-content'>收起菜单</div></li>
-    </div>
+        <a href='./' class='mdui-list-item'><i class='mdui-list-item-icon mdui-icon material-icons'>home</i><div class='mdui-list-item-content'>首页</div></a>
+        </div>
 </div>
-<div class='mdui-container mdui-p-t-3'>
-    <div class='mdui-card'>
-        <div class='mdui-card-content mdui-typo'>
-            <div class='mdui-row-sm-1 mdui-row-lg-1' id='RecordClass'>
-                <div style='margin-top:16px'></div>
-                <div id='RecordDiv'></div>
-
-                <div style='margin-top:16px'></div>
-                <div class='mdui-col'>
-                    <div class='mdui-card'>
-                        <div class='mdui-card-content'>
-                            <div class='mdui-card-primary-title'>解二元一次方程组</div>
-                            <div class='mdui-card-primary-subtitle'>请先将每个二元一次方程化成ax+by=c的形式</div>
-                            <div class='mdui-card-menu'>
-                                <button type='button' class='mdui-btn mdui-color-red-400 mdui-ripple' mdui-tooltip='{content:&quot;清空表单&quot;}' onclick='DelData()'><i class='mdui-icon material-icons'>delete</i>清空</button>
-                            </div>
-                        </div>
-
-                        <div class='mdui-card-primary'>
-                            <div class='mdui-textfield'>
-                                <label class='mdui-textfield-label'>方程1</label>
-                                <input id="a11" type="text" onkeyup="checkLength(this)" size="1">x+<input id="a12"  onkeyup="checkLength(this)" size="1">y=<input id="b1"  onkeyup="checkLength(this)" size="1">
-                            </div>
-
-                            <div class='mdui-textfield'>
-                                <label class='mdui-textfield-label'>方程2</label>
-                                <input id="a21" onkeyup="checkLength(this)" size="1">x+<input id="a22"  onkeyup="checkLength(this)" size="1">y=<input id="b2"  onkeyup="checkLength(this)" size="1">
-                            </div>
-                            <button type='button'  onclick="计算()" class='mdui-btn mdui-color-green-700 mdui-btn-block mdui-ripple' mdui-tooltip="{content:'解二元一次方程组'}" onclick='LinkParsing()'><i class='mdui-list-item-icon mdui-icon material-icons' style='margin-top:-2px'>arrow_forward</i> 计算</button>
-                            <div class='mdui-textfield'>
-                                <label class='mdui-textfield-label'>答案</label>
-                                <input readonly="readonly" class='mdui-textfield-input' id="ans"  onkeyup="checkLength(this)" size="1">
-                            </div>
-                            <div  class='mdui-textfield' id="gitment-ctn"><label class='mdui-textfield-label'>评论区</label></div>
-
-                            <!-- 中文 -->
-                            <link rel="stylesheet" href="https://zhousw.top/lib/gitment.css">
-                            <script src="https://zhousw.top/lib/gitment.js"></script>
-
-                            <script>
-                                <!-- id: "解二元一次方程组" -->
-                                var gitment = new Gitment({
-                                    id: "20211023221557",
-                                    owner: 'zhousw50',
-                                    repo: 'pinlun',
-                                    oauth: {
-                                        client_id: '92cc61257b37f441e9b9',
-                                        client_secret: '12f7c8e26c31062821c288c62c635ecc15205b67',
-                                    },
-                                })
-                                gitment.render('gitment-ctn')
-                            </script>
-                            <form> <a type="submit" href="https://cors-anywhere.herokuapp.com/corsdemo" target="_blank">登录总转圈？按这里</a>
-
-                        </div>
-                    </div>
-                </div>
-            </d iv>
-            <div style='height:16px'></div>
+<!--<div class='mdui-container mdui-p-t-3'>
+    <div class='mdui-col'>
+        <div class='mdui-card'>
+            <video controls='controls' autoplay='autoplay' loop='loop' class='mdui-video-fluid'>
+                <source src='https://vod.afdiancdn.com/c43dcf2cvodtransgzp1256217904/a5f9f8bb387702292422876629/v.f100840.mp4?t=61bff392&us=61bea212342e1&sign=a2de6f636f1cbb9dd35e01f4c5931666' type='video/mp4'>
+            </video>
         </div>
     </div>
 </div>
+-->
+<div class='mdui-container mdui-p-t-3'>
+    <div class='mdui-col'>
+        <div class='mdui-card'>
+            <div class='mdui-card-content'>
+                <div class='mdui-card-primary-title'>解二元一次方程组</div>
+                <div class='mdui-card-primary-subtitle'>请先将每个二元一次方程化成ax+by=c的形式</div>
+                <div class='mdui-card-menu'>
+                    <button type='button' class='mdui-btn mdui-color-red-400 mdui-ripple' mdui-tooltip='{content:&quot;清空表单&quot;}' onclick='DelData()'><i class='mdui-icon material-icons'>delete</i>清空</button>
+                </div>
+            </div>
 
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class='mdui-card-primary'>
+                <div class='mdui-textfield'>
+                    <label class='mdui-textfield-label'>方程1</label>
+                    <input id="a11" type="text" onkeyup="checkLength(this)" size="1">x+<input id="a12"  onkeyup="checkLength(this)" size="1">y=<input id="b1"  onkeyup="checkLength(this)" size="1">
+                </div>
+
+                <div class='mdui-textfield'>
+                    <label class='mdui-textfield-label'>方程2</label>
+                    <input id="a21" onkeyup="checkLength(this)" size="1">x+<input id="a22"  onkeyup="checkLength(this)" size="1">y=<input id="b2"  onkeyup="checkLength(this)" size="1">
+                </div>
+                <button type='button'  onclick="计算()" class='mdui-btn mdui-color-green-700 mdui-btn-block mdui-ripple' mdui-tooltip="{content:'解二元一次方程组'}" onclick='LinkParsing()'><i class='mdui-list-item-icon mdui-icon material-icons' style='margin-top:-2px'>arrow_forward</i> 计算</button>
+                <div class='mdui-textfield'>
+                    <label class='mdui-textfield-label'>答案</label>
+                    <input readonly="readonly" class='mdui-textfield-input' id="ans"  onkeyup="checkLength(this)" size="1">
+                </div>
+            </div>
+    </div>
+</div>
+
+<div class='mdui-container mdui-p-t-3'>
+    <div class='mdui-col'>
+        <div class='mdui-card'>
+            <div class='mdui-card-primary'>
+                <div class='mdui-card-primary-title'>评论区</div>
+                <div class='mdui-card-primary-subtitle'>帮助开发者完善网页</div>
+            </div>
+
+            <div class='mdui-card-content mdui-typo'>
+                <div id="gitment-ctn"></div>
+                <link rel="stylesheet" href="https://zhousw.top/lib/gitment.css">
+                <script src="https://zhousw.top/lib/gitment.js"></script>
+
+                <script>
+                    <!-- id: "解二元一次方程组" -->
+                    var gitment = new Gitment({
+                        id: "20211023221557",
+                        owner: 'zhousw50',
+                        repo: 'pinlun',
+                        oauth: {
+                            client_id: '92cc61257b37f441e9b9',
+                            client_secret: '12f7c8e26c31062821c288c62c635ecc15205b67',
+                        },
+                    })
+                    gitment.render('gitment-ctn')
+                </script>
+
+                <a type="submit" href="https://cors-anywhere.herokuapp.com/corsdemo" target="_blank">登录总转圈？按这里</a>
+            </div>
+        </div>
+    </div>
+</div>
 <div style='height:70px'></div>
 <footer class='mdui-typo'>
-    <p>Copyright © 2021 - 2021 <text475bca><a href='https://zhousw.top/'>zhousw.top</a></text475bca></p>
-    <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <p>Copyright © 2019 - 2021 <text475bca><a href='./'>KinhDown</a></text475bca></p>
 </footer>
-</body>
-<script src='https://cdn.bootcdn.net/ajax/libs/mdui/1.0.2/js/mdui.min.js'></script>
-</html>
-  </div>
-</div>
-<script src="./index.js"></script>
 
+<script>
+    var MainDrawer = new mdui.Drawer('#main-drawer');
+    MainDrawer.open();
+</script>
 </body>
+</html>
 </html>
