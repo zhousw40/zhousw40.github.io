@@ -13,10 +13,7 @@ function 计算(){
         document.getElementById("ans-card").removeAttribute("hidden");
         let ans="x="+x+"\n y="+y
         if (ans=="x=NaN y=NaN") document.getElementById('ans').innerText="有无数个解";
-        else
-        {
-            if (ans=="x=-Infinity y=Infinity"||ans=="x=Infinity y=-Infinity") document.getElementById('ans').innerText="无解";
-        }
+        if (ans=="x=-Infinity y=Infinity"||ans=="x=Infinity y=-Infinity") document.getElementById('ans').innerText="无解";
         else
         {
             document.getElementById('ans').innerText=ans;
