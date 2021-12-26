@@ -22,8 +22,8 @@ function 计算(){
             document.getElementById('1').innerText="①×"+a21+"得"+a21*a11+"x+"+a21*a12+"y="+b1*a21+"③";
             if(a21*a12<0) document.getElementById('1').innerText="①×"+a21+"得"+a21*a11+"x"+a21*a12+"y="+b1*a21+"③";
             else document.getElementById('1').innerText="①×"+a21+"得"+a21*a11+"x+"+a21*a12+"y="+b1*a21+"③";
-            if(a22*a11<0)document.getElementById('2').innerText="②×"+a11+"得"+a21*a11+"x"+a22*a11+"y="+b1*a21+"④";
-            else document.getElementById('2').innerText="②×"+a11+"得"+a21*a11+"x+"+a22*a11+"y="+b1*a21+"④";
+            if(a22*a11<0)document.getElementById('2').innerText="②×"+a11+"得"+a21*a11+"x"+a22*a11+"y="+b1*a11+"④";
+            else document.getElementById('2').innerText="②×"+a11+"得"+a21*a11+"x+"+a22*a11+"y="+b1*a11+"④";
             document.getElementById('3').innerText="④-③得"+"y="+y;
             document.getElementById('4').innerText="把"+"y="+y+"代入①得"+"x="+x;
             document.getElementById('5').innerText="∴原方程组的解为"+"x="+x+"y="+y;
