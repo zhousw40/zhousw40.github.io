@@ -4,17 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <title>解二元一次方程组</title>
-    <link rel='stylesheet' href='https://cdn.bootcdn.net/ajax/libs/mdui/1.0.2/css/mdui.min.css'>
-    <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/UallenQbit/Static/Body.css'>
-    <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/UallenQbit/Static/MDUI-Border-Radius.css'>
-    <link rel='stylesheet' href='https://cdn.bootcdn.net/ajax/libs/limonte-sweetalert2/11.1.0/sweetalert2.min.css'>
-    <script src='https://cdn.bootcdn.net/ajax/libs/limonte-sweetalert2/11.1.0/sweetalert2.all.min.js'></script>
-    <script src='https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
-    <script src='https://cdn.bootcdn.net/ajax/libs/qrcodejs/1.0.0/qrcode.min.js'></script>
-    <script src='https://cdn.bootcdn.net/ajax/libs/mdui/1.0.2/js/mdui.min.js'></script>
+    <!-- MDUI CSS -->
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css"
+            integrity="sha384-cLRrMq39HOZdvE0j6yBojO4+1PrHfB7a9l5qLcmRm/fiWXYY+CndJPmyu5FV/9Tw"
+            crossorigin="anonymous"
+    />
+
+    <!-- MDUI JavaScript -->
+    <script
+            src="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"
+            integrity="sha384-gCMZcshYKOGRX9r6wbDrvF+TcCCswSHFucUzUPwka+Gr+uHgjlYvkABr95TCOz3A"
+            crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
     <script src='index.js'></script>
 </head>
-<body>
 <style>
     #picyzm {
         width: 100px;
@@ -53,24 +59,21 @@
         resize: none;
     }
 </style>
-<style>
-    @media screen and (max-width: 720px) {
-        body{width: 90%!important; padding: 0px!important; margin:0px!important; min-width:350px!important;}
-    }
 
 
-</style>
-<script>
-    function checkLength(which) {
-
-        iCount = which.value.replace(/[^\u0000-\u00ff]/g,"aa");
-        which.size=iCount.length;
-    }
-</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<body oncontextmenu='return false' class='mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-indigo'>
+<script>
+    Swal.fire({
+        icon: 'info',
+        title: '请先将每个二元一次方程化成ax+by=c的形式',
 
-<body class='mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-indigo'>
-<header class='mdui-appbar mdui-appbar-fixed'>
+        showConfirmButton: false,
+
+        timer: 1500
+
+    })
+</script><header class='mdui-appbar mdui-appbar-fixed'>
     <div class='mdui-toolbar mdui-color-theme'>
         <button mdui-drawer="{target: '#main-drawer'}" class='mdui-btn mdui-btn-icon' mdui-tooltip="{content:'菜单'}"><i class='mdui-icon material-icons'>menu</i></button>
         <a href='https://zhousw.top' class='mdui-typo-headline' mdui-tooltip="{content:'解二元一次方程组'}">解二元一次方程组</span></a>
@@ -84,17 +87,7 @@
         <a href='./' class='mdui-list-item'><i class='mdui-list-item-icon mdui-icon material-icons'>home</i><div class='mdui-list-item-content'>首页</div></a>
     </div>
 </div>
-<!--<div class='mdui-container mdui-p-t-3'>
-    <div class='mdui-col'>
-        <div class='mdui-card'>
-            <video controls='controls' autoplay='autoplay' loop='loop' class='mdui-video-fluid'>
-                <source src='https://vod.afdiancdn.com/c43dcf2cvodtransgzp1256217904/a5f9f8bb387702292422876629/v.f100840.mp4?t=61bff392&us=61bea212342e1&sign=a2de6f636f1cbb9dd35e01f4c5931666' type='video/mp4'>
-            </video>
-        </div>
-    </div>
-</div>
--->
-<div class='mdui-container mdui-p-t-3'>
+<div class='mdui-container mdui-p-t-12'>
     <div class='mdui-col'>
         <div class='mdui-card'>
             <div class='mdui-card-content'>
@@ -171,7 +164,7 @@
                 <div class='mdui-card-content mdui-typo'>
                     <div id="gitment-ctn"></div>
                     <link rel="stylesheet" href="https://zhousw.top/lib/gitment.css">
-                    <script src="https://zhousw50.github.io/lib/gitment.js"></script>
+                    <script src="https://zhousw.top/lib/gitment.js"></script>
 
                     <script>
                         <!-- id: "解二元一次方程组" -->
@@ -186,13 +179,17 @@
                         })
                         gitment.render('gitment-ctn')
                     </script>
-
                     <a type="submit" href="https://cors-anywhere.herokuapp.com/corsdemo" target="_blank">登录总转圈？按这里</a>
+                    <br>位置信息:<span id="showIpInfo"></span>
                 </div>
             </div>
         </div>
     </div>
-    <div style='height:70px'></div>
+
+<script src="https://whois.pconline.com.cn/ip.js"></script>
+<script>labelIp('showIpInfo','27.36.135.214')</script>
+
+<div style='height:70px'></div>
     <footer class='mdui-typo'>
         <p>Copyright © 2021 <text475bca><a target="_parent" href='https://zhousw.top'>Zhousw.Top</a></text475bca></p>
     </footer>
@@ -347,7 +344,13 @@
         if (res) {
             计算();
         } else {
-            alert("验证码错误");
+            Swal.fire({
+                icon: 'error',
+                title: '请正确地输入验证码！',
+                showConfirmButton: false,
+
+                timer: 1500
+            })
         }
     }
 </script>

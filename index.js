@@ -5,17 +5,22 @@ function 计算(){
     let a22= document.getElementById("a22").value;
     let b1= document.getElementById("b1").value;
     let b2= document.getElementById("b2").value;
-    if(!a11||!a12||!a21||!a22||!b1||!b2) alert("请输入完整方程组");
+    if(!a11||!a12||!a21||!a22||!b1||!b2) Swal.fire({
+        icon: 'error',
+        title: '请输入完整的二元一次方程组！',
+        showConfirmButton: false,
+
+        timer: 1500
+    })
     else{
         document.location.href="./#ans-card";
         let x=(b1-a12*((b2-a21/a11*b1)/(a22-a21/a11*a12)))/a11
         let y=(b2-a21/a11*b1)/(a22-a21/a11*a12)
         document.getElementById("ans-card").removeAttribute("hidden");
         let ans="x="+x+"\n y="+y
-        if (ans=="x=NaN y=NaN") document.getElementById('ans').innerText="有无数个解";
-        if (ans=="x=-Infinity y=Infinity"||ans=="x=Infinity y=-Infinity") document.getElementById('ans').innerText="无解";
-        else
-        {
+        if (ans=="x=NaN\ny=NaN") document.getElementById('ans').innerText="有无数个解";
+        else if (ans=="x=-Infinity\ny=Infinity"||ans=="x=Infinity\ny=-Infinity") document.getElementById('ans').innerText="无解";
+        else {
             document.getElementById('ans').innerText=ans;
             document.getElementById("ans-card").removeAttribute("hidden");
             document.getElementById("ans-card2").removeAttribute("hidden");
@@ -42,5 +47,3 @@ function DelData () {
     document.getElementById('b2').value=""
     document.getElementById('ans').value=""
 }
-
-confirm("请先将每个二元一次方程化成ax+by=c的形式");
