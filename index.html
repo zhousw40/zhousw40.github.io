@@ -162,25 +162,24 @@
                 </div>
 
                 <div class='mdui-card-content mdui-typo'>
-                    <div id="gitment-ctn"></div>
-                    <link rel="stylesheet" href="https://zhousw.top/lib/gitment.css">
-                    <script src="https://zhousw.top/lib/gitment.js"></script>
+                    <div id="gitalk-container"></div>
+                    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+                    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+                    <script src="https://zhousw50.github.io/lib/md5.min.js"></script>
 
                     <script>
-                        <!-- id: "解二元一次方程组" -->
-                        var gitment = new Gitment({
-                            id: "20211023221557",
-                            owner: 'zhousw50',
+                        var gitalk = new Gitalk({
+                            clientID: '7370ee14185d400d7936',
+                            clientSecret: '6423ed9537ed8dfed422fc04a6ca1146e5d31521',
                             repo: 'pinlun',
-                            oauth: {
-                                client_id: '92cc61257b37f441e9b9',
-                                client_secret: '12f7c8e26c31062821c288c62c635ecc15205b67',
-                            },
+                            owner: 'zhousw50',
+                            admin: 'zhousw50',
+                            id: md5(location.hash),
+                            distractionFreeMode: false  // 无干扰模式
                         })
-                        gitment.render('gitment-ctn')
+
+                        gitalk.render('gitalk-container')
                     </script>
-                    <a type="submit" href="https://cors-anywhere.herokuapp.com/corsdemo" target="_blank">登录总转圈？按这里</a>
-                    </div>
             </div>
         </div>
     </div>
