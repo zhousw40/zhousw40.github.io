@@ -1,198 +1,144 @@
-
-<!DOCTYPE html>
-<html lang="ch">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title></title>
-    <script>
-        window.location.href='https://zhousw50.github.io/小工具/解二元一次方程组/'
-    </script>
-    <!-- MDUI CSS -->
-    <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css"
-            integrity="sha384-cLRrMq39HOZdvE0j6yBojO4+1PrHfB7a9l5qLcmRm/fiWXYY+CndJPmyu5FV/9Tw"
-            crossorigin="anonymous"
-    />
-
-    <!-- MDUI JavaScript -->
-    <script
-            src="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"
-            integrity="sha384-gCMZcshYKOGRX9r6wbDrvF+TcCCswSHFucUzUPwka+Gr+uHgjlYvkABr95TCOz3A"
-            crossorigin="anonymous"
-    ></script>
+    <title>解二元一次方程组</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
-    <script src='https://zhousw40.github.io/index.js'></script>
+    <script src='https://zhousw.tk/index.js'></script>
+    <link rel='stylesheet' href='https://cdn.staticfile.org/mdui/1.0.2/css/mdui.min.css'>
+    <link rel='stylesheet' href='https://api.kinh.cc/Static/CSS/MDUI-Border-Radius.css'>
+    <script src='https://cdn.staticfile.org/mdui/1.0.2/js/mdui.min.js'></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes">
+    <style>
+        #picyzm {
+            width: 100px;
+            height: 40px;
+            display: inline-block;
+            margin: 0 50px;
+        }
+        input {
+            -webkit-text-size-adjust: 100%;
+            word-wrap: break-word;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-writing-mode: horizontal-tb !important;
+            -webkit-rtl-ordering: logical;
+            text-rendering: auto;
+            text-align: center;
+            box-sizing: border-box;
+            height: 36px;
+            width: 25%;
+            margin: 0;
+            padding: 8px 0;
+            overflow: hidden;
+            font-size: 16px;
+            font-family: inherit;
+            line-height: 20px;
+            background: 0 0;
+            border: none;
+            border-bottom: 1px solid;
+            border-radius: 0;
+            outline: 0;
+            box-shadow: none;
+            transition-timing-function: cubic-bezier(.4,0,.2,1);
+            transition-duration: .2s;
+            transition-property: border-bottom-color,padding-right,box-shadow,-webkit-box-shadow;
+            appearance: none;
+            resize: none;
+        }
+    </style>
 </head>
-<style>
-    #picyzm {
-        width: 100px;
-        height: 40px;
-        display: inline-block;
-        margin: 0 50px;
-    }
-    input {
-        -webkit-text-size-adjust: 100%;
-        word-wrap: break-word;
-        -webkit-tap-highlight-color: transparent;
-        -webkit-writing-mode: horizontal-tb !important;
-        -webkit-rtl-ordering: logical;
-        text-rendering: auto;
-        text-align: center;
-        box-sizing: border-box;
-        height: 36px;
-        width: 30%;
-        margin: 0;
-        padding: 8px 0;
-        overflow: hidden;
-        color: rgba(0,0,0,.87);
-        font-size: 16px;
-        font-family: inherit;
-        line-height: 20px;
-        background: 0 0;
-        border: none;
-        border-bottom: 1px solid rgba(0,0,0,.42);
-        border-radius: 0;
-        outline: 0;
-        box-shadow: none;
-        transition-timing-function: cubic-bezier(.4,0,.2,1);
-        transition-duration: .2s;
-        transition-property: border-bottom-color,padding-right,box-shadow,-webkit-box-shadow;
-        appearance: none;
-        resize: none;
-    }
-</style>
-
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<body oncontextmenu='return false' onselectstart='return false' oncopy='return false;' oncut='return false;' class='mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-indigo'>
-<script>
-    Swal.fire({
-        icon: 'info',
-        title: '请先将每个二元一次方程化成ax+by=c的形式',
-
-        showConfirmButton: false,
-
-        timer: 1500
-
-    })
-</script><header class='mdui-appbar mdui-appbar-fixed'>
-    <div class='mdui-toolbar mdui-color-theme'>
-        <button mdui-drawer="{target: '#main-drawer'}" class='mdui-btn mdui-btn-icon' mdui-tooltip="{content:'菜单'}"><i class='mdui-icon material-icons'>menu</i></button>
-        <a href='https://zhousw.top' class='mdui-typo-headline' mdui-tooltip="{content:'解二元一次方程组'}">解二元一次方程组</span></a>
-        <div class='mdui-toolbar-spacer'></div>
-        <a href='javascript:window.location.reload()' class='mdui-btn mdui-btn-icon'><i class='mdui-icon material-icons'>refresh</i></a>
+<body class='mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-indigo'>
+    <header class='mdui-appbar mdui-appbar-fixed'>
+        <div class='mdui-toolbar mdui-color-theme'>
+            <button mdui-drawer="{target: '#main-drawer'}" class='mdui-btn mdui-btn-icon' mdui-tooltip="{content:'菜单'}"><i class='mdui-icon material-icons'>menu</i></button>
+            <a href='' class='mdui-typo-headline' mdui-tooltip="{content:'解二元一次方程组'}">解二元一次方程组</span></a>
+            <div class='mdui-toolbar-spacer'></div>
+            <a href='javascript:window.location.reload()' class='mdui-btn mdui-btn-icon'><i class='mdui-icon material-icons' mdui-tooltip="{content:'刷新'}">refresh</i></a>
+        </div>
+    </header>
+    <div class='mdui-drawer mdui-drawer-close' id='main-drawer'>
+        <div class='mdui-list'>
+            <a href='https://zhousw.top' class='mdui-list-item'><i class='mdui-list-item-icon mdui-icon material-icons'>home</i><div class='mdui-list-item-content'>首页</div></a>
+            <br>
+            <li class='mdui-list-item' mdui-drawer-close=''><i class='mdui-list-item-icon mdui-icon material-icons'>chevron_left</i><div class='mdui-list-item-content'>收起菜单</div></li>
+        </div>
     </div>
-</header>
-
-<div class='mdui-drawer mdui-drawer-close' id='main-drawer'>
-    <div class='mdui-list'>
-        <a href='./' class='mdui-list-item'><i class='mdui-list-item-icon mdui-icon material-icons'>home</i><div class='mdui-list-item-content'>首页</div></a>
-    </div>
-</div>
-<div class='mdui-container mdui-p-t-12'>
-    <div class='mdui-col'>
-        <div class='mdui-card'>
-            <div class='mdui-card-content'>
-                <div class='mdui-card-primary-title'>输入方程组</div>
-                <div class='mdui-card-primary-subtitle'>请先将每个二元一次方程化成ax+by=c的形式</div>
-                <div class='mdui-card-menu'>
-                    <button type='button' class='mdui-btn mdui-color-red-400 mdui-ripple' mdui-tooltip='{content:&quot;清空表单&quot;}' onclick='DelData()'><i class='mdui-icon material-icons'>delete</i>清空</button>
-                </div>
-            </div>
-
-            <div class='mdui-card-primary'>
-                <div class='mdui-textfield'>
-                    <label class='mdui-textfield-label'>方程1</label>
-                    <input id="a11" type="text" onkeyup="checkLength(this)" size="1">x+<input id="a12"  onkeyup="checkLength(this)" size="1">y=<input id="b1"  onkeyup="checkLength(this)" size="1">①
-                </div>
-
-                <div class='mdui-textfield'>
-                    <label class='mdui-textfield-label'>方程2</label>
-                    <input id="a21" onkeyup="checkLength(this)" size="1">x+<input id="a22"  onkeyup="checkLength(this)" size="1">y=<input id="b2"  onkeyup="checkLength(this)" size="1">②
-                </div>
-                <div class='mdui-textfield'>
-                    <label class='mdui-textfield-label'>验证码</label>
-                    <div id="verifyCodeDemo">
-                        <input class='mdui-textfield-input' type="text" id="code_input" placeholder="">
+    <div class='mdui-card-content mdui-typo'>
+        <div class='mdui-row-sm-1 mdui-row-lg-1'>
+            <div class='mdui-col'>
+                <div class='mdui-card'>
+                    <div class='mdui-card-content'>
+                        <div class='mdui-card-primary-title' style="text-align: center">解二元一次方程组</div>
+                        <div class='mdui-card-primary-subtitle' style="text-align: center">请先将每个二元一次方程化成ax+by=c的形式</div>
+                        <div class='mdui-card-menu'>
+                            <button type='button' class='mdui-btn mdui-color-red-400 mdui-ripple' mdui-tooltip='{content:&quot;清空表单&quot;}' onclick='DelData()'><i class='mdui-icon material-icons'>delete</i>清空</button>
+                        </div>
+                    </div>
+                    <div class='mdui-card-primary' style="text-align: center">
+                        <div class='mdui-textfield'>
+                            <label class='mdui-textfield-label'>方程1</label>
+                            <input id="a11" style="text-align: center">x+<input id="a12">y=<input id="b1">①<br>
+                        </div>
+                        <div class='mdui-textfield'>
+                            <label class='mdui-textfield-label'>方程2</label>
+                            <input id="a21">x+<input id="a22">y=<input id="b2">②<br>
+                        </div>
+                        <div class='mdui-textfield'>
+                            <label class='mdui-textfield-label'>验证码</label>
+                            <input id="code_input"><p id="picyzm"></p>
+                        </div>
                         <br>
-                        <p style="text-align: center" id="picyzm"></p>
-
+                        <button type='button' id="btn" class='mdui-btn mdui-color-green-700 mdui-btn-block mdui-ripple' mdui-tooltip="{content:'解二元一次方程组'}"><i class='mdui-list-item-icon mdui-icon material-icons' style='margin-top:-2px'>arrow_forward</i> 计算</button>
                     </div>
                 </div>
-                <br>
-                <button type='button' id="btn" class='mdui-btn mdui-color-green-700 mdui-btn-block mdui-ripple' mdui-tooltip="{content:'解二元一次方程组'}"><i class='mdui-list-item-icon mdui-icon material-icons' style='margin-top:-2px'>arrow_forward</i> 计算</button>
-                </div>
-        </div>
-    </div>
-    <div hidden id="ans-card" class='mdui-container mdui-p-t-3'>
-        <div class='mdui-col'>
-            <div class='mdui-card'>
-                <div class='mdui-card-primary'>
-                    <div class='mdui-card-primary-title'>答案</div>
-                </div>
-                <div class='mdui-card-content mdui-typo'>
-                    <p id="ans" style="font-size:20px;"></p>
-                </div>
-            </div>
             </div>
         </div>
     </div>
-<div hidden id="ans-card2" class='mdui-container mdui-p-t-3'>
-    <div class='mdui-col'>
-        <div class='mdui-card'>
-            <div class='mdui-card-primary'>
-                <div class='mdui-card-primary-title'>解答过程</div>
-            </div>
-            <div class='mdui-card-content mdui-typo'>
-                <strong style="font-size:20px;">解：</strong>
-                <p id="1" style="display: inline-block;font-size:20px;"></p>
-                <p id="2" style="font-size:20px;"></p>
-                <p id="3" style="font-size:20px;"></p>
-                <p id="4" style="font-size:20px;"></p>
-                <p id="5" style="font-size:20px;"></p>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-    <div class='mdui-container mdui-p-t-3'>
-        <div class='mdui-col'>
-            <div class='mdui-card'>
-                <div class='mdui-card-primary'>
-                    <div class='mdui-card-primary-title'>评论区</div>
-                    <div class='mdui-card-primary-subtitle'>帮助开发者完善网页</div>
+    <div hidden id="ans-card" class='mdui-card-content mdui-typo'>
+        <div class='mdui-row-sm-1 mdui-row-lg-1'>
+            <div class='mdui-col'>
+                <div class='mdui-card'>
+                    <div class='mdui-card-content'>
+                        <h1><strong class='mdui-card-primary-title' style="text-align: center">答案</strong></h1>
+                        <p id="ans" style="font-size:20px;" style="text-align: center"></p>
+                    </div>
                 </div>
-
-                <div class='mdui-card-content mdui-typo'>
-                    <div id="gitalk-container"></div>
-                    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-                    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-                    <script src="https://zhousw50.github.io/lib/md5.min.js"></script>
-
-                    <script>
-                        var gitalk = new Gitalk({
-                            clientID: '28ea4a45b7d7015bbe2c',
-                            clientSecret: 'd6d912485deb7c167188c47de40420f9b30006cd',
-                            repo: 'pinlun',
-                            owner: 'zhousw50',
-                            admin: 'zhousw50',
-                            id: md5(location.hash),
-                            language: 'zh-CN',
-                            distractionFreeMode: false  // 无干扰模式
-                        })
-
-                        gitalk.render('gitalk-container')
-                    </script>
             </div>
         </div>
     </div>
+    <div hidden id="ans-card2" class='mdui-card-content mdui-typo'>
+        <div class='mdui-row-sm-1 mdui-row-lg-1'>
+            <div class='mdui-col'>
+                <div class='mdui-card'>
+                    <div class='mdui-card-content'>
+                        <h1><strong class='mdui-card-primary-title' style="text-align: center">解答过程</strong></h1>
+                        <strong style="font-size:20px;">解： </strong>
+                        <p id="1" style="display: inline-block;font-size:20px;"></p>
+                        <p id="2" style="font-size:20px;"></p>
+                        <p id="3" style="font-size:20px;"></p>
+                        <p id="4" style="font-size:20px;"></p>
+                        <p id="5" style="font-size:20px;"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+            Swal.fire({
+                toast: true,
+                position: 'top',
+                icon: 'info',
+                title: '请先将每个二元一次方程化成ax+by=c的形式',
+                timer: 1000,
+                showConfirmButton: false,
+                width: 700
+            });
+    </script>
 
-<div style='height:70px'></div>
+    <div style='height:70px'></div>
     <footer class='mdui-typo'>
-        <p>Copyright © 2021 <text475bca><a target="_parent" href='https://zhousw.top'>Zhousw.Top</a></text475bca></p>
+        <p>Copyright © 2021 - 2022 <a style='font-weight:600' href='https://zhousw.top/' target='_blank'>zhousw</a><lua id='ShareInfo'></lua></p>
     </footer>
-</body>
+
 <script>
     !(function(window, document) {
         function GVerify(options) { // 创建一个图形验证码对象，接收options对象为参数
@@ -341,16 +287,16 @@
     btn.onclick = function() {
         var res = verifyCode.validate(code.value);
         if (res) {
-            计算();
+            解二元一次方程组();
         } else {
             Swal.fire({
                 icon: 'error',
                 title: '请正确地输入验证码！',
                 showConfirmButton: false,
-
                 timer: 1500
-            })
+            });
         }
     }
 </script>
+</body>
 </html>
