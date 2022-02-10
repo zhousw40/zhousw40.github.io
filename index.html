@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <title>解二元一次方程组</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
-    <script src='https://zhousw.tk/index.js'></script>
+    <script src='index.js'></script>
     <link rel='stylesheet' href='https://cdn.staticfile.org/mdui/1.0.2/css/mdui.min.css'>
     <link rel='stylesheet' href='https://api.kinh.cc/Static/CSS/MDUI-Border-Radius.css'>
     <script src='https://cdn.staticfile.org/mdui/1.0.2/js/mdui.min.js'></script>
@@ -287,7 +287,7 @@
     btn.onclick = function() {
         var res = verifyCode.validate(code.value);
         if (res) {
-            计算();
+            count();
         } else {
             Swal.fire({
                 icon: 'error',

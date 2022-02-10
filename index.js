@@ -9,20 +9,18 @@ function 计算(){
         icon: 'error',
         title: '请输入完整的二元一次方程组！',
         showConfirmButton: false,
-
         timer: 1500
-    })
+    });
     else{
-        document.location.href="./#ans-card";
         let x=(b1-a12*((b2-a21/a11*b1)/(a22-a21/a11*a12)))/a11
         let y=(b2-a21/a11*b1)/(a22-a21/a11*a12)
         document.getElementById("ans-card").removeAttribute("hidden");
+        document.getElementById("ans-card2").removeAttribute("hidden");
         let ans="x="+x+"\n y="+y
         if (ans=="x=NaN\ny=NaN") document.getElementById('ans').innerText="有无数个解";
         else if (ans=="x=-Infinity\ny=Infinity"||ans=="x=Infinity\ny=-Infinity") document.getElementById('ans').innerText="无解";
         else {
             document.getElementById('ans').innerText=ans;
-            document.getElementById("ans-card").removeAttribute("hidden");
             document.getElementById("ans-card2").removeAttribute("hidden");
             document.getElementById('1').innerText="①×"+a21+"得"+a21*a11+"x+"+a21*a12+"y="+b1*a21+"③";
             if(a21*a12<0) document.getElementById('1').innerText="①×"+a21+"得"+a21*a11+"x"+a21*a12+"y="+b1*a21+"③";
@@ -34,9 +32,27 @@ function 计算(){
             document.getElementById('5').innerText="∴原方程组的解为"+"x="+x+"y="+y;
             }
         }
-
-
-    //①②③④
+}
+function 二元一次方程的正整数解() {
+    let a=document.getElementById('a').value;
+    let b=document.getElementById('b').value;
+    let c=document.getElementById('c').value;
+    let y=1;
+    let ans;
+    while (1) {
+        if((c-b*y)/a<=0)//如果不是正数
+        {
+            break;//跳出循环
+        }
+        if((c-b*y)%a!=0)//如果不是整数
+        {
+            y++;//y加1
+            continue;//下一层循环
+        }
+        if(!ans) ans="x="+(c-b*y)/a+"y="+y+"\n"; else ans=ans+"x="+(c-b*y)/a+"y="+y+"\n";
+        y++;
+    }
+    document.getElementById('ans').innerText=ans;
 }
 function DelData () {
     document.getElementById('a11').value=""
