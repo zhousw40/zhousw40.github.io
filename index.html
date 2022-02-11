@@ -7,6 +7,8 @@
     <link rel='stylesheet' href='https://cdn.staticfile.org/mdui/1.0.2/css/mdui.min.css'>
     <link rel='stylesheet' href='https://api.kinh.cc/Static/CSS/MDUI-Border-Radius.css'>
     <script src='https://cdn.staticfile.org/mdui/1.0.2/js/mdui.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/davidshimjs-qrcodejs@0.0.2/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes">
     <style>
         #picyzm {
@@ -49,19 +51,12 @@
 <body class='mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-indigo'>
     <header class='mdui-appbar mdui-appbar-fixed'>
         <div class='mdui-toolbar mdui-color-theme'>
-            <button mdui-drawer="{target: '#main-drawer'}" class='mdui-btn mdui-btn-icon' mdui-tooltip="{content:'菜单'}"><i class='mdui-icon material-icons'>menu</i></button>
+            <h1>      </h1>
             <a href='' class='mdui-typo-headline' mdui-tooltip="{content:'解二元一次方程组'}">解二元一次方程组</span></a>
             <div class='mdui-toolbar-spacer'></div>
             <a href='javascript:window.location.reload()' class='mdui-btn mdui-btn-icon'><i class='mdui-icon material-icons' mdui-tooltip="{content:'刷新'}">refresh</i></a>
         </div>
     </header>
-    <div class='mdui-drawer mdui-drawer-close' id='main-drawer'>
-        <div class='mdui-list'>
-            <a href='https://zhousw.top' class='mdui-list-item'><i class='mdui-list-item-icon mdui-icon material-icons'>home</i><div class='mdui-list-item-content'>首页</div></a>
-            <br>
-            <li class='mdui-list-item' mdui-drawer-close=''><i class='mdui-list-item-icon mdui-icon material-icons'>chevron_left</i><div class='mdui-list-item-content'>收起菜单</div></li>
-        </div>
-    </div>
     <div class='mdui-card-content mdui-typo'>
         <div class='mdui-row-sm-1 mdui-row-lg-1'>
             <div class='mdui-col'>
@@ -88,6 +83,7 @@
                         </div>
                         <br>
                         <button type='button' id="btn" class='mdui-btn mdui-color-green-700 mdui-btn-block mdui-ripple' mdui-tooltip="{content:'解二元一次方程组'}"><i class='mdui-list-item-icon mdui-icon material-icons' style='margin-top:-2px'>arrow_forward</i> 计算</button>
+
                     </div>
                 </div>
             </div>
@@ -117,6 +113,30 @@
                         <p id="3" style="font-size:20px;"></p>
                         <p id="4" style="font-size:20px;"></p>
                         <p id="5" style="font-size:20px;"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='mdui-card-content mdui-typo'>
+        <div class='mdui-row-sm-1 mdui-row-lg-1'>
+            <div class='mdui-col'>
+                <div class='mdui-card'>
+                    <div class='mdui-card-content'>
+                        <h2>记网址很难？扫二维码就行！</h2>
+                        加载不出来？<a href=" ">刷新</a>
+                        <div id="qrcode" style=""></div>
+                        <script>
+                            var qrcode = new QRCode(document.getElementById("qrcode"), {
+                                text: "https://zhousw.tk",
+                                width: 150,
+                                height: 150,
+                                correctLevel: Math.round(Math.random()*4),
+                                typeNumber: Math.round(Math.random()*5),
+                                colorDark : "#0e0707",
+                                colorLight : "#ffffff",
+                            });
+                        </script>
                     </div>
                 </div>
             </div>
