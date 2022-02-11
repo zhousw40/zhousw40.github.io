@@ -1,4 +1,4 @@
-function 计算(){
+function count(){
     let a11= document.getElementById("a11").value;
     let a12= document.getElementById("a12").value;
     let a21= document.getElementById("a21").value;
@@ -33,7 +33,8 @@ function 计算(){
             }
         }
 }
-function 二元一次方程的正整数解() {
+/*
+function count2() {
     let a=document.getElementById('a').value;
     let b=document.getElementById('b').value;
     let c=document.getElementById('c').value;
@@ -54,12 +55,13 @@ function 二元一次方程的正整数解() {
     }
     document.getElementById('ans').innerText=ans;
 }
+*/
 function DelData () {
-    document.getElementById('a11').value=""
-    document.getElementById('a12').value=""
-    document.getElementById('a21').value=""
-    document.getElementById('a22').value=""
-    document.getElementById('b1').value=""
-    document.getElementById('b2').value=""
-    document.getElementById('ans').value=""
+    document.getElementById('a11').value="";
+    document.getElementById('a12').value="";
+    document.getElementById('a21').value="";
+    document.getElementById('a22').value="";
+    document.getElementById('b1').value="";
+    document.getElementById('b2').value="";
+    document.getElementById('ans').value="";
 }
